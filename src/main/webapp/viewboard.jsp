@@ -58,8 +58,8 @@
         <p><span class="detail-label">Write Date:</span> <span class="detail-value">${board.getWriteDate()}</span></p>
         <p><span class="detail-label">Count:</span> <span class="detail-value">${board.getCount()}</span></p>
         <p><span class="detail-label">Groups:</span> <span class="detail-value">${board.getGroups()}</span></p>
-        <p><span class="detail-label">Step:</span> <span class="detail-value">${board.getStep()}</span></p>
-        <p><span class="detail-label">Indent:</span> <span class="detail-value">${board.getIndent()}</span></p>
+       <%--  <p><span class="detail-label">Step:</span> <span class="detail-value">${board.getStep()}</span></p>
+        <p><span class="detail-label">Indent:</span> <span class="detail-value">${board.getIndent()}</span></p> --%>
     </div>
     
     <a href="update_board.do?id=${board.getId()}">수정</a>

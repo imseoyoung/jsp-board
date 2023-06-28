@@ -73,8 +73,8 @@
             <th>Write Date</th>
             <th>Count</th>
             <th>Groups</th>
-            <th>Step</th>
-            <th>Indent</th>
+<!--             <th>Step</th>
+            <th>Indent</th> -->
         </tr>
         <c:forEach var="board" items="${boardList}">
             <tr>
@@ -85,8 +85,8 @@
                 <td>${board.getWriteDate()}</td>
                 <td>${board.getCount()}</td>
                 <td>${board.getGroups()}</td>
-                <td>${board.getStep()}</td>
-                <td>${board.getIndent()}</td>
+<%--                 <td>${board.getStep()}</td>
+                <td>${board.getIndent()}</td> --%>
             </tr>
         </c:forEach>
     </table>
