@@ -149,5 +149,18 @@ public class BoardDAO {
         }
     }
 
+    public void deleteMultipleBoards(String[] boardIds) {
+        try (Connection conn = ds.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement("DELETE FROM BOARD WHERE id = ?")
+        ) {
+            for (String boardId : boardIds) {
+                pstmt.setString(1, boardId);
+                pstmt.addBatch();
+            }
+            pstmt.executeBatch();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     
 }

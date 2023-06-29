@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import sylim.board.command.BoardCommand;
 import sylim.board.command.DeleteCommand;
+import sylim.board.command.DeleteMultipleCommand;
 import sylim.board.command.SelectCommand;
 import sylim.board.command.UpdateCommand;
 import sylim.board.command.ViewCommand;
@@ -95,6 +96,13 @@ public class FrontController extends HttpServlet {
                 break;
             case "/delete_board.do":
                 cmd = new DeleteCommand();
+                cmd.execute(request, response);
+                viewPage = "deleteconfirm.jsp";
+                break;
+            case "/delete_multiple.do":
+                cmd = new DeleteMultipleCommand();
+                List<BoardDTO> deletedBoardList = cmd.execute(request, response);
+                request.setAttribute("boardList", deletedBoardList);
                 cmd.execute(request, response);
                 viewPage = "deleteconfirm.jsp";
                 break;

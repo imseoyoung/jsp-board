@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -68,39 +67,59 @@ h1 {
 .action-buttons a:hover {
 	background-color: #ED9595;
 }
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+th, td {
+	padding: 8px;
+	border-bottom: 1px solid #ddd;
+	text-align: left;
+}
 </style>
 </head>
 <body>
 	<div class="container">
-		<div class="details">
-			<p>
-				<span class="detail-label">번호:</span> <span class="detail-value">${board.getId()}</span>
-			</p>
-			<p>
-				<span class="detail-label">제목:</span> <span class="detail-value">${board.getTitle()}</span>
-			</p>
-			<p>
-				<span class="detail-label">내용:</span> <span class="detail-value">${board.getContent()}</span>
-			</p>
-			<p>
-				<span class="detail-label">작성자:</span> <span class="detail-value">${board.getWriter()}</span>
-			</p>
-			<p>
-				<span class="detail-label">작성일:</span> <span class="detail-value">${board.getWriteDate()}</span>
-			</p>
-			<p>
-				<span class="detail-label">조회수:</span> <span class="detail-value">${board.getCount()}</span>
-			</p>
-			<%-- <p><span class="detail-label">Groups:</span> <span class="detail-value">${board.getGroups()}</span></p>
-        <p><span class="detail-label">Step:</span> <span class="detail-value">${board.getStep()}</span></p>
-        <p><span class="detail-label">Indent:</span> <span class="detail-value">${board.getIndent()}</span></p> --%>
-		</div>
+		<h1>글 정보</h1>
+		<table>
+			<tr>
+				<th>항목</th>
+				<th>내용</th>
+			</tr>
+			<tr>
+				<td>번호:</td>
+				<td>${board.getId()}</td>
+			</tr>
+			<tr>
+				<td>제목:</td>
+				<td>${board.getTitle()}</td>
+			</tr>
+			<tr>
+				<td>내용:</td>
+				<td>${board.getContent()}</td>
+			</tr>
+			<tr>
+				<td>작성자:</td>
+				<td>${board.getWriter()}</td>
+			</tr>
+			<tr>
+				<td>작성일:</td>
+				<td>${board.getWriteDate()}</td>
+			</tr>
+			<tr>
+				<td>조회수:</td>
+				<td>${board.getCount()}</td>
+			</tr>
+		</table>
 
 		<div class="action-buttons">
-			<a href="update_board.do?id=${board.getId()}">수정</a> <a
-				href="delete_board.do?id=${board.getId()}">삭제</a> <a
-				href="reply_board.do?id=${board.getId()}">답글</a> <a
-				href="select_board.do">목록</a>
+			<a href="update_board.do?id=${board.getId()}">수정</a>
+			<a href="delete_board.do?id=${board.getId()}">삭제</a>
+			<a href="reply_board.do?id=${board.getId()}">답글</a>
+			<a href="select_board.do">목록</a>
 		</div>
 
 	</div>
