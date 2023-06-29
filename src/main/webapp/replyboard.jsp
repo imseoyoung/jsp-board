@@ -68,7 +68,7 @@ input[type="submit"]:hover, input[type="reset"]:hover, a.button:hover {
 			for="title">제목:</label> <input type="text" id="title" name="title"
 			required><br>
 		<br> <label for="content">내용:</label><br>
-		<textarea id="content" name="content" rows="5" cols="50" required></textarea>
+		<textarea id="content" name="content" rows="10" cols="62" required></textarea>
 		<br>
 		<br> <label for="writer">작성자:</label> <input type="text"
 			id="writer" name="writer" required><br>
