@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Board List</title>
+    <title>떠뮤니티</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,10 +28,14 @@
             border-bottom: 1px solid #ddd;
         }
         
+        .container {
+        text-align: right;
+    	}
+        
         .add-button {
             display: inline-block;
             padding: 8px 16px;
-            background-color: #4CAF50;
+            background-color: #FFB9B9;
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -41,7 +45,8 @@
         }
         
         .add-button:hover {
-            background-color: #45a049;
+            background-color: #ED9595;
+            text-align: right;
         }
         
         .title-link {
@@ -62,16 +67,15 @@
     </style>
 </head>
 <body>
-    <h1>Board List</h1>
-    <a href="insert_board.do" class="add-button">글 작성하기</a>
+    <h1>글 목록</h1>
     <table>
         <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Content</th>
-            <th>Writer</th>
-            <th>Write Date</th>
-            <th>Count</th>
+            <th>번호</th>
+            <th>제목</th>
+            <!-- <th>내용</th> -->
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회수</th>
             <th>Groups</th>
 <!--             <th>Step</th>
             <th>Indent</th> -->
@@ -80,7 +84,7 @@
             <tr>
                 <td>${board.getId()}</td>
                 <td><a href="view_board.do?id=${board.getId()}" class="title-link">${board.getTitle()}</a></td>
-                <td>${board.getContent()}</td>
+                <%-- <td>${board.getContent()}</td> --%>
                 <td>${board.getWriter()}</td>
                 <td>${board.getWriteDate()}</td>
                 <td>${board.getCount()}</td>
@@ -90,5 +94,9 @@
             </tr>
         </c:forEach>
     </table>
+    <br>
+    <div class="container">
+    <a href="insert_board.do" class="add-button">글 작성하기</a>
+    </div>
 </body>
 </html>

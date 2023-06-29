@@ -77,14 +77,14 @@ public class FrontController extends HttpServlet {
             case "/view_board.do":
                 cmd = new ViewCommand();
                 List<BoardDTO> viewBoardList = cmd.execute(request, response);
-                BoardDTO board = viewBoardList.get(0); // 첫 번째 글 정보를 가져옴
+                BoardDTO board = viewBoardList.get(0);
                 request.setAttribute("board", board);
                 viewPage = "viewboard.jsp";
                 break;
             case "/update_board.do":
                 cmd = new ViewCommand();
                 List<BoardDTO> updateBoardList = cmd.execute(request, response);
-                BoardDTO updateBoard = updateBoardList.get(0); // 첫 번째 글 정보를 가져옴
+                BoardDTO updateBoard = updateBoardList.get(0);
                 request.setAttribute("board", updateBoard);
                 viewPage = "updateboard.jsp";
                 break;
@@ -101,7 +101,7 @@ public class FrontController extends HttpServlet {
             case "/reply_board.do":
                 cmd = new ViewCommand();
                 List<BoardDTO> replyBoardList = cmd.execute(request, response);
-                BoardDTO replyBoard = replyBoardList.get(0); // 첫 번째 글 정보를 가져옴
+                BoardDTO replyBoard = replyBoardList.get(0);
                 request.setAttribute("board", replyBoard);
                 viewPage = "replyboard.jsp";
                 break;

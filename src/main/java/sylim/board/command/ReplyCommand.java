@@ -23,21 +23,19 @@ public class ReplyCommand implements BoardCommand {
         BoardDAO dao = new BoardDAO();
         BoardDTO existingBoard = dao.getBoardById(boardId);
 
-        // 원본 글의 groups 값 그대로 가져오기
-        int groups = existingBoard.getGroups();
+        int groups = existingBoard.getId();
 
-        // 원본 글의 step과 indent 값에 각각 1씩 증가
         int step = existingBoard.getStep() + 1;
-        int indent = existingBoard.getIndent() + 2;
+        int indent = existingBoard.getIndent() + 1;
 
         // 들여쓰기에 사용할 문자열 생성
         StringBuilder indentString = new StringBuilder();
         for (int i = 0; i < indent; i++) {
-            indentString.append(".");
+            indentString.append("..");
         }
 
         // 제목 앞에 들여쓰기 문자열 추가
-        title = indentString.toString() + title;
+        title = indentString.toString() + " " + title;
 
         BoardDTO board = new BoardDTO(0, title, content, writer, writeDate, count, groups, step, indent);
         dao.insertBoard(board);

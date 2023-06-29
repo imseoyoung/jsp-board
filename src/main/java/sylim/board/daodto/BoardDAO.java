@@ -72,13 +72,12 @@ public class BoardDAO {
         return board;
     }
 
-
     public List<BoardDTO> getAllBoard() {
         List<BoardDTO> boardList = new ArrayList<>();
 
         try (Connection conn = ds.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM BOARD ORDER BY GROUPS, STEP")
+                ResultSet rs = stmt.executeQuery("SELECT id, title, content, writer, write_date, count, groups, step, indent FROM board START WITH groups = 0 CONNECT BY PRIOR id = groups ORDER SIBLINGS BY step ASC");
         ) {
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -100,6 +99,7 @@ public class BoardDAO {
 
         return boardList;
     }
+
 
     public void insertBoard(BoardDTO board) {
         try (Connection conn = ds.getConnection();
